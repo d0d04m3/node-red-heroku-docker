@@ -19,17 +19,13 @@ services:
     networks:
       - node-red-net
     volumes:
-      - node-red:/data
+      - ./node-red:/data
       
 
 volumes:
   node-red:
     size: 2Gi
-    driver: local
-    driver_opts:
-      o: bind
-      type: none
-      device: "/home/94r4d0x/.node-red"
+    
 networks:
   node-red-net:
  
