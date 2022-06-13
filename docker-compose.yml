@@ -29,7 +29,7 @@ volumes:
     driver_opts:
       o: bind
       type: none
-      device: "/home/user/node-red1"
+      device: "/home/94r4d0x/.node-red"
 networks:
   node-red-net:
  
