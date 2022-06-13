@@ -17,10 +17,10 @@ services:
     ports:
       - 1880:1880
     volumes:
-      - drive:/data
+      - node-red:/data
       
 volumes:
-  drive:
+  node-red:
     size: 2Gi
  
 
