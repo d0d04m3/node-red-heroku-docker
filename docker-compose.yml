@@ -17,10 +17,10 @@ services:
     ports:
       - 1880:1880
     volumes:
-      - Drive:/data
+      - drive:/data
       
 volumes:
-  Drive:
+  drive:
     size: 2Gi
  
 
