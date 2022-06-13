@@ -8,6 +8,7 @@ version: "3.7"
 
 services:
   node-red:
+    public: true
     build:
       context: .
       dockerfile: Dockerfile
@@ -15,10 +16,7 @@ services:
       - TZ=Asia/Tokyo
     ports:
       - 1880:1880
-    networks:
-      - node-red-net
     volumes:
       - ./data:/data
+ 
 
-networks:
-  node-red-net:
