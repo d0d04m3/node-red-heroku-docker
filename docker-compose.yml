@@ -19,7 +19,7 @@ services:
     networks:
       - node-red-net
     volumes:
-      - node-red:/data
+      - node-red:/home/94r4d0x/.node-red
       
 
 volumes:
