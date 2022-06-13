@@ -17,3 +17,8 @@ COPY /data/flows.json /data/flows.json
 #WORKDIR /usr/src/node-red
 ENTRYPOINT npm start --  --userDir /data
 #RUN npm install node-red-node-smooth
+RUN chown -R 1000:1000 /data
+
+
+
+
