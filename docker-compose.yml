@@ -16,11 +16,21 @@ services:
       - TZ=Asia/Tokyo
     ports:
       - 80:1880
+    networks:
+      - node-red-net
     volumes:
       - node-red:/data
       
+
 volumes:
   node-red:
     size: 2Gi
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: "/home/user/node-red1"
+networks:
+  node-red-net:
  
 
