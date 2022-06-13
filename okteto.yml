@@ -3,5 +3,5 @@ build:
   dockerfile: Dockerfile
   target: prod
   args:
-    - USER=94r4d0x
-    - PASSWORD=d0d04m32017
+    USER=94r4d0x
+    PASSWORD=d0d04m32017
