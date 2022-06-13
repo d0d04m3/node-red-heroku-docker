@@ -1,4 +1,4 @@
-FROM nodered/node-red:1.1.3
+FROM nodered/node-red
 
 # Copy package.json to the WORKDIR so npm builds all
 # of your added nodes modules for Node-RED
