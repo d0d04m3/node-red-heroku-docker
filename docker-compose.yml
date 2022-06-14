@@ -10,13 +10,9 @@ services:
   mongodb:
     image: docker.io/bitnami/mongodb:5.0
     environment:
-      - MONGODB_ADVERTISED_HOSTNAME=mongodb-primary
-      - MONGODB_REPLICA_SET_MODE=primary
-      - MONGODB_ROOT_PASSWORD=okteto
-      - MONGODB_USERNAME=okteto
-      - MONGODB_PASSWORD=okteto
-      - MONGODB_DATABASE=okteto
-      - MONGODB_REPLICA_SET_KEY=replicasetkey123
+      - MONGO_INITDB_ROOT_PASSWORD=okteto
+      - MONGO_INITDB_ROOT_USERNAME=okteto
+      - MONGO_INITDB_DATABASE=okteto
     ports:
       - "27017:27017"
     volumes:
