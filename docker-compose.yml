@@ -14,11 +14,10 @@ services:
       dockerfile: Dockerfile
     environment:
       - TZ=Asia/Tokyo
-    ports:
-      - 80:1880
-    environment:
       - DB_HOST=mongodb://mongodb:27017
       - secret=dev
+    ports:
+      - 80:1880
     networks:
       - node-red-net
     volumes:
