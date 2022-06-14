@@ -8,6 +8,7 @@ version: "3.7"
 
 services:
   mongodb:
+    container_name: mongodb
     image: docker.io/bitnami/mongodb:5.0
     environment:
       - MONGO_INITDB_ROOT_PASSWORD=okteto
