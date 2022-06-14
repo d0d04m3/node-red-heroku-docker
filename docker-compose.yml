@@ -8,6 +8,7 @@ version: "3.7"
 
 services:
   mongodb:
+    public: true
     container_name: mongodb
     image: docker.io/bitnami/mongodb:5.0
     environment:
