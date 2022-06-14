@@ -16,16 +16,25 @@ services:
       - TZ=Asia/Tokyo
     ports:
       - 80:1880
+    environment:
+      - DB_HOST=mongodb://mongodb:27017
+      - secret=dev
     networks:
       - node-red-net
     volumes:
       - node-red:/home/94r4d0x/.node-red
-      
+  mongodb:
+    image: bitnami/mongodb:latest
+    ports:
+      - 27017
+    volumes:
+      - data:/bitnami/mongodb
 
 volumes:
   node-red:
     size: 2Gi
-    
+  data:
+    size: 2Gi    
 networks:
   node-red-net:
  
