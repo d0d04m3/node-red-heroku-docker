@@ -8,7 +8,7 @@ version: "3.7"
 
 services:
   mongodb:
-    image: docker.io/bitnami/mongodb:5.0
+    image: docker.io/bitnami/mongodb:4.0
     environment:
       - MONGO_INITDB_ROOT_PASSWORD=okteto
       - MONGO_INITDB_ROOT_USERNAME=okteto
