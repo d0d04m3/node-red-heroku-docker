@@ -12,9 +12,9 @@ services:
     container_name: mongodb
     image: docker.io/bitnami/mongodb:5.0
     environment:
-      - MONGO_INITDB_ROOT_PASSWORD=okteto
-      - MONGO_INITDB_ROOT_USERNAME=okteto
-      - MONGO_INITDB_DATABASE=okteto
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
     ports:
       - "27017:27017"
     volumes:
