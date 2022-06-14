@@ -1,3 +1,0 @@
-deploy:
-     - name: Deploy MongoDB
-       command:  helm upgrade --install mongodb bitnami/mongodb -f mongodb/values.yml --version 12.1.15
