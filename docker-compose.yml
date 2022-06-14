@@ -22,6 +22,10 @@ services:
       - node-red-net
     volumes:
       - node-red:/home/94r4d0x/.node-red
+    epends_on:
+      - mongodb
+    links:
+      - mongodb
 
 
 volumes:
