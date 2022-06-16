@@ -28,10 +28,9 @@ services:
       - TZ=Asia/Tokyo
       - DB_HOST=mongodb://mongodb:27017
       - secret=dev
+    replicas: 2
     ports:
       - 80:1880
-    networks:
-      - node-red-net
     volumes:
       - node-red:/home/94r4d0x/.node-red
     links:
@@ -45,7 +44,6 @@ volumes:
     driver: local
     size: 2Gi
   
-networks:
-  node-red-net:
+
  
 
