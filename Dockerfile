@@ -19,5 +19,12 @@ COPY /data/settings.js /home/94r4d0x/.node-red/settings.js
 ENTRYPOINT npm start --  --userDir /home/94r4d0x/.node-red
 #RUN npm install node-red-node-smooth
 
+# Set work directory
+WORKDIR /usr/src/node-red
+
+# Setup SSH known_hosts file
+COPY /data/known_hosts.sh .
+RUN ./known_hosts.sh /etc/ssh/ssh_known_hosts && rm /usr/src/node-red/known_hosts.sh
+
 
 
