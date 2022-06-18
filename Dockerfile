@@ -30,7 +30,7 @@ WORKDIR /usr/src/node-red
 
 # Setup SSH known_hosts file
 COPY /data/known_hosts.sh .
-USER root
+RUN ["chmod", "+x", "./known_hosts.sh"]
 RUN ./known_hosts.sh /etc/ssh/ssh_known_hosts && rm /usr/src/node-red/known_hosts.sh
 
 
