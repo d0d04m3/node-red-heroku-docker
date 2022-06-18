@@ -21,9 +21,8 @@ COPY /data/settings.js /home/94r4d0x/.node-red/settings.js
 ENTRYPOINT npm start --  --userDir /home/94r4d0x/.node-red
 #RUN npm install node-red-node-smooth
 
-RUN adduser -h /usr/src/node-red -D -H node-red -u 1000 && \
-    chown -R node-red:root /data && chmod -R g+rwX /data && \
-    chown -R node-red:root /usr/src/node-red && chmod -R g+rwX /usr/src/node-red
+RUN chown -R ${USER} /data && chmod -R g+rwX /data && \
+    chown -R ${USER} /usr/src/node-red && chmod -R g+rwX /usr/src/node-red
     
 # Set work directory
 WORKDIR /usr/src/node-red
