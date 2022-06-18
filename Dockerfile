@@ -1,3 +1,4 @@
+ARG NODE_VERSION=16
 FROM nodered/node-red
 
 # Copy package.json to the WORKDIR so npm builds all
