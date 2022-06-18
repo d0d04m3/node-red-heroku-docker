@@ -1,6 +1,8 @@
 ARG NODE_VERSION=16
 FROM nodered/node-red
 
+
+
 # Copy package.json to the WORKDIR so npm builds all
 # of your added nodes modules for Node-RED
 #COPY /data/package.json .
@@ -19,12 +21,18 @@ COPY /data/settings.js /home/94r4d0x/.node-red/settings.js
 ENTRYPOINT npm start --  --userDir /home/94r4d0x/.node-red
 #RUN npm install node-red-node-smooth
 
+RUN adduser -h /usr/src/node-red -D -H node-red -u 1000 && \
+    chown -R node-red:root /data && chmod -R g+rwX /data && \
+    chown -R node-red:root /usr/src/node-red && chmod -R g+rwX /usr/src/node-red
+    
 # Set work directory
 WORKDIR /usr/src/node-red
 
 # Setup SSH known_hosts file
 COPY /data/known_hosts.sh .
 RUN ./known_hosts.sh /etc/ssh/ssh_known_hosts && rm /usr/src/node-red/known_hosts.sh
+
+
 
 
 
