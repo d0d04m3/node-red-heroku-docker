@@ -30,6 +30,8 @@ services:
     public: true
     build:
       context: .
+      build-arg:
+         - name=ns1
       dockerfile: Dockerfile
     environment:
       - TZ=Asia/Tokyo
