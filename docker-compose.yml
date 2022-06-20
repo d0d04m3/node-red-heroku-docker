@@ -41,7 +41,7 @@ services:
              sh -c "cp /data/settings.js /home/94r4d0x/.node-red/server/ns1"
              
     volumes:
-      - Drive:/home/94r4d0x/.node-red/server/ns1
+      - drive:/home/94r4d0x/.node-red/server/ns1
     entrypoint: 
       - npm start --  --userDir /home/94r4d0x/.node-red/server/ns1
 
@@ -50,7 +50,7 @@ services:
 
 
 volumes:
-  Drive:
+  drive:
     size: 2Gi
   mongodb_data:
     driver: local
