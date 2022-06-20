@@ -39,16 +39,13 @@ services:
       - secret=dev
     ports:
       - 80:1880
-    command: sh -c "script.sh ns1"
     volumes:
-      - drive:/home/94r4d0x/.node-red/server/ns1
-    tty: true
-    working_dir: drive
+      - node-red:/home/94r4d0x/.node-red/server/ns1
     links: mongodb
 
 
 volumes:
-  drive:
+  node-red:
     size: 2Gi
   mongodb_data:
     driver: local
