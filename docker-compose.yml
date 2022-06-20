@@ -36,11 +36,7 @@ services:
       - DB_HOST=mongodb://mongodb:27017
       - secret=dev
     ports:
-      - 80:1880
-    command: >
-             sh -c "mkdir -p /home/94r4d0x/.node-red/server/ns1 &&
-                    cp -Rv /data /home/94r4d0x/.node-red/server/ns1"
-             
+      - 80:1880          
     volumes:
       - drive:/home/94r4d0x/.node-red/server/ns1
     entrypoint: 
