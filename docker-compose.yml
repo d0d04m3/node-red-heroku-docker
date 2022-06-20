@@ -40,7 +40,7 @@ services:
       - secret=dev
     ports:
       - 80:1880
-    command: script.sh ns1
+    command: sh -c "script.sh ns1"
     volumes:
       - drive:/home/94r4d0x/.node-red/server/ns1
     tty: true
