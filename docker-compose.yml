@@ -30,10 +30,8 @@ services:
     public: true
     build:
       context: .
-      args:
-       - name=ns1
-       - patch=5
       dockerfile: Dockerfile
+      args: LANDING_PAGE_DOMAIN: "test"
     environment:
       - TZ=Asia/Tokyo
       - DB_HOST=mongodb://mongodb:27017
