@@ -7,7 +7,7 @@ COPY /data/script.sh .
 RUN ["chmod", "+x", "./script.sh"]
 RUN echo  "-${name}-"
 RUN echo  "-${DB_HOST}-"
-RNU printenv
+RUN printenv
 
 
 # Copy package.json to the WORKDIR so npm builds all
