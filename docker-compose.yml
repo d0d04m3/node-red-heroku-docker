@@ -32,7 +32,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args: 
-        - GIT_PERSONAL_ACCESS_TOKEN=test
+        - PATH_ACCESS_ENV=/home/94r4d0x/.node-red/server/ns1
     environment:
       - TZ=Asia/Tokyo
       - DB_HOST=mongodb://mongodb:27017
@@ -44,7 +44,6 @@ services:
       - drive:/home/94r4d0x/.node-red/server/ns1
     tty: true
     working_dir: drive
-    entrypoint: npm start --  --userDir ./home/94r4d0x/.node-red/server/ns1
     links: mongodb
 
 
