@@ -32,7 +32,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args: 
-        - NR_ENV_ACCESS_PATH=/home/94r4d0x/.node-red/server/ns1
+        - NR_ENV_ACCESS_PATH=/home/user1/.node-red
     environment:
       - TZ=Asia/Tokyo
       - DB_HOST=mongodb://mongodb:27017
@@ -40,7 +40,7 @@ services:
     ports:
       - 80:1880
     volumes:
-      - node-red:/home/94r4d0x/.node-red/server/ns1
+      - node-red:/home/user1/.node-red
     links: mongodb
 
 
