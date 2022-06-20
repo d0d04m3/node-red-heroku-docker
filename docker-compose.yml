@@ -37,8 +37,14 @@ services:
       - secret=dev
     ports:
       - 80:1880
+    command: >
+             sh -c "cp /data/settings.js /home/94r4d0x/.node-red/server/ns1"
+             
     volumes:
-      - Drive/ns1:/home/94r4d0x/.node-red
+      - Drive:/home/94r4d0x/.node-red/server/ns1
+    entrypoint: 
+      - npm start --  --userDir /home/94r4d0x/.node-red/server/ns1
+
     links:
       - mongodb
 
