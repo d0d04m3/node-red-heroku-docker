@@ -1,12 +1,12 @@
 #ARG NODE_VERSION=16
-ARG PATH_ACCESS_ENV
+#ARG PATH_ACCESS_ENV
 FROM nodered/node-red
 USER root
 RUN chown -R node-red:root /data && chmod -R g+rwX /data && \
     chown -R node-red:root /usr/src/node-red && chmod -R g+rwX /usr/src/node-red
 COPY /data/script.sh .
 RUN ["chmod", "+x", "./script.sh"]
-#ARG GIT_PERSONAL_ACCESS_TOKEN
+ARG GIT_PERSONAL_ACCESS_TOKEN
 RUN echo "https://${PATH_ACCESS_ENV}@github.com" 
 #RUN ./script.sh "${PATH_ACCESS_ENV}"
 
