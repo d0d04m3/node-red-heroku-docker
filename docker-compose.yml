@@ -32,7 +32,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args: 
-        - PATH_ACCESS_ENV=/home/94r4d0x/.node-red/server/ns1
+        - PATH_ACCESS_ENV=test
     environment:
       - TZ=Asia/Tokyo
       - DB_HOST=mongodb://mongodb:27017
