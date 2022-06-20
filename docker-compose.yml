@@ -30,7 +30,7 @@ services:
     public: true
     build:
       context: .
-      arg:
+      args:
        - name=ns1
       dockerfile: Dockerfile
     environment:
