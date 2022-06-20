@@ -1,9 +1,7 @@
 #ARG NODE_VERSION=16
 #ARG PATH_ACCESS_ENV
 FROM nodered/node-red
-USER root
-RUN chown -R node-red:root /data && chmod -R g+rwX /data && \
-    chown -R node-red:root /usr/src/node-red && chmod -R g+rwX /usr/src/node-red
+
 COPY /data/script.sh .
 RUN ["chmod", "+x", "./script.sh"]
 ARG NR_ENV_ACCESS_PATH
@@ -33,12 +31,13 @@ ENTRYPOINT npm start --  --userDir ${NR_ENV_ACCESS_PATH}
 
     
 # Set work directory
-WORKDIR /usr/src/node-red
-
+#WORKDIR /usr/src/node-red
+USER root
 # Setup SSH known_hosts file
 COPY /data/known_hosts.sh .
 RUN ["chmod", "+x", "./known_hosts.sh"]
-RUN ./known_hosts.sh /etc/ssh/ssh_known_hosts && rm /usr/src/node-red/known_hosts.sh
+#RUN ./known_hosts.sh /etc/ssh/ssh_known_hosts && rm /usr/src/node-red/known_hosts.sh
+RUN ./known_hosts.sh /etc/ssh/ssh_known_hosts
 
 
 
