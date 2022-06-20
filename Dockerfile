@@ -1,4 +1,5 @@
 ARG NODE_VERSION=16
+ARG patch
 ADD . $name
 FROM nodered/node-red
 USER root
@@ -7,7 +8,7 @@ RUN chown -R node-red:root /data && chmod -R g+rwX /data && \
 COPY /data/script.sh .
 RUN ["chmod", "+x", "./script.sh"]
 RUN echo  $name
-RUN echo  ${DB_HOST}
+RUN echo  ${patch}
 RUN printenv
 
 
