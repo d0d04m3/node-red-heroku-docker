@@ -1,15 +1,13 @@
 ARG NODE_VERSION=16
 ARG patch
-ADD . $name
 FROM nodered/node-red
 USER root
 RUN chown -R node-red:root /data && chmod -R g+rwX /data && \
     chown -R node-red:root /usr/src/node-red && chmod -R g+rwX /usr/src/node-red
 COPY /data/script.sh .
 RUN ["chmod", "+x", "./script.sh"]
-RUN echo  $name
+RUN echo  $patch
 RUN echo  ${patch}
-RUN printenv
 
 
 # Copy package.json to the WORKDIR so npm builds all
