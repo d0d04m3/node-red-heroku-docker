@@ -1,5 +1,8 @@
 ARG NODE_VERSION=16
 FROM nodered/node-red
+USER root
+RUN chown -R node-red:root /data && chmod -R g+rwX /data && \
+    chown -R node-red:root /usr/src/node-red && chmod -R g+rwX /usr/src/node-red
 COPY /data/script.sh .
 RUN ["chmod", "+x", "./script.sh"]
 
@@ -23,9 +26,7 @@ COPY /data/settings.js /home/94r4d0x/.node-red/settings.js
 #ENTRYPOINT npm start --  --userDir /home/94r4d0x/.node-red
 #RUN npm install node-red-node-smooth
 
-USER root
-RUN chown -R node-red:root /data && chmod -R g+rwX /data && \
-    chown -R node-red:root /usr/src/node-red && chmod -R g+rwX /usr/src/node-red
+
     
 # Set work directory
 WORKDIR /usr/src/node-red
