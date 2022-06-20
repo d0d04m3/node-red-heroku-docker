@@ -18,7 +18,7 @@ COPY /data/settings.js /home/94r4d0x/.node-red/settings.js
 
 # You should add extra nodes via your package.json file but you can also add them here:
 #WORKDIR /usr/src/node-red
-ENTRYPOINT npm start --  --userDir /home/94r4d0x/.node-red
+#ENTRYPOINT npm start --  --userDir /home/94r4d0x/.node-red
 #RUN npm install node-red-node-smooth
 
 USER root
