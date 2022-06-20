@@ -31,7 +31,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args: FOO: "test"
+      args: 
+        - FOO="test"
     environment:
       - TZ=Asia/Tokyo
       - DB_HOST=mongodb://mongodb:27017
