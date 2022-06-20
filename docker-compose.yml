@@ -32,7 +32,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args: 
-        - PATH_ACCESS_ENV=test
+        - GIT_PERSONAL_ACCESS_TOKEN=test
     environment:
       - TZ=Asia/Tokyo
       - DB_HOST=mongodb://mongodb:27017
