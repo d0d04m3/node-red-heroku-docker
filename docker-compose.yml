@@ -39,8 +39,10 @@ services:
       - 80:1880          
     volumes:
       - drive:/home/94r4d0x/.node-red/server/ns1
+    tty: true
+    working_dir: drive
     entrypoint: 
-      - npm start --  --userDir /home/94r4d0x/.node-red/server/ns1
+      - npm start --  --userDir ./home/94r4d0x/.node-red/server/ns1
 
     links:
       - mongodb
