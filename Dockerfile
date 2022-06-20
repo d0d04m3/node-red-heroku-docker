@@ -6,9 +6,9 @@ RUN chown -R node-red:root /data && chmod -R g+rwX /data && \
     chown -R node-red:root /usr/src/node-red && chmod -R g+rwX /usr/src/node-red
 COPY /data/script.sh .
 RUN ["chmod", "+x", "./script.sh"]
-ARG GIT_PERSONAL_ACCESS_TOKEN
-RUN echo "https://${GIT_PERSONAL_ACCESS_TOKEN}@github.com" 
-#RUN ./script.sh "${PATH_ACCESS_ENV}"
+ARG NR_ENV_ACCESS_PATH
+RUN echo "https://${NR_ENV_ACCESS_PATH}@github.com" 
+RUN ./script.sh "${NR_ENV_ACCESS_PATH}"
 
 
 # Copy package.json to the WORKDIR so npm builds all
