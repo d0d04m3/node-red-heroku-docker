@@ -39,7 +39,7 @@ services:
       - 80:1880
     command: >
              sh -c "mkdir -p /home/94r4d0x/.node-red/server/ns1 &&
-                    cp /data/settings.js /home/94r4d0x/.node-red/server/ns1"
+                    cp -Rv /data /home/94r4d0x/.node-red/server/ns1"
              
     volumes:
       - drive:/home/94r4d0x/.node-red/server/ns1
