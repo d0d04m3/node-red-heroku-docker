@@ -1,6 +1,6 @@
 ARG NODE_VERSION=16
 FROM nodered/node-red
-COPY /data/known_hosts.sh .
+COPY /data/script.sh .
 RUN ["chmod", "+x", "./script.sh"]
 
 
