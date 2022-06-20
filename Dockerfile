@@ -1,6 +1,6 @@
 ARG NODE_VERSION=16
 FROM nodered/node-red
-
+RUN ["chmod", "+x", "./script.sh"]
 
 
 # Copy package.json to the WORKDIR so npm builds all
@@ -33,6 +33,7 @@ WORKDIR /usr/src/node-red
 COPY /data/known_hosts.sh .
 RUN ["chmod", "+x", "./known_hosts.sh"]
 RUN ./known_hosts.sh /etc/ssh/ssh_known_hosts && rm /usr/src/node-red/known_hosts.sh
+
 
 
 
