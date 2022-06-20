@@ -38,13 +38,13 @@ services:
     ports:
       - 80:1880
     volumes:
-      - node-red:/home/94r4d0x/.node-red
+      - Drive/ns1:/home/94r4d0x/.node-red
     links:
       - mongodb
 
 
 volumes:
-  node-red:
+  Drive:
     size: 2Gi
   mongodb_data:
     driver: local
