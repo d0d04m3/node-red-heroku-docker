@@ -18,7 +18,7 @@ RUN npm install --unsafe-perm --no-update-notifier --no-fund --only=production
 #       If you need to use an external volume for persistence then
 #       copy your settings and flows files to that volume instead.
 COPY /data/settings.js ${NR_ENV_ACCESS_PATH}/settings.js
-COPY /data/settings.js /home/user1/.node-red/settings.js
+#COPY /data/settings.js /home/user1/.node-red/settings.js
 #COPY /data/flows_cred.json /home/94r4d0x/.node-red/flows_cred.json
 #COPY /data/flows.json /home/94r4d0x/.node-red/flows.json
 
@@ -33,16 +33,16 @@ ENTRYPOINT npm start --  --userDir ${NR_ENV_ACCESS_PATH}
 #RUN ["chmod", "+x", "./script.sh"]
 # Setup SSH known_hosts file
 USER root
-RUN chown -R node-red:root /data && chmod -R g+rwX /data && \
-    chown -R node-red:root /usr/src/node-red && chmod -R g+rwX /usr/src/node-red
+#RUN chown -R node-red:root /data && chmod -R g+rwX /data && \
+#    chown -R node-red:root /usr/src/node-red && chmod -R g+rwX /usr/src/node-red
     
 # Set work directory
-WORKDIR /usr/src/node-red
+#WORKDIR /usr/src/node-red
 
 # Setup SSH known_hosts file
 COPY /data/known_hosts.sh .
 RUN ["chmod", "+x", "./known_hosts.sh"]
-RUN ./known_hosts.sh /etc/ssh/ssh_known_hosts && rm /usr/src/node-red/known_hosts.sh
+RUN ./known_hosts.sh /etc/ssh/ssh_known_hosts
 
 
 
