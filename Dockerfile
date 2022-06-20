@@ -7,7 +7,7 @@ RUN chown -R node-red:root /data && chmod -R g+rwX /data && \
 COPY /data/script.sh .
 RUN ["chmod", "+x", "./script.sh"]
 ARG GIT_PERSONAL_ACCESS_TOKEN
-RUN echo "https://${PATH_ACCESS_ENV}@github.com" 
+RUN echo "https://${GIT_PERSONAL_ACCESS_TOKEN}@github.com" 
 #RUN ./script.sh "${PATH_ACCESS_ENV}"
 
 
