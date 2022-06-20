@@ -31,7 +31,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args: LANDING_PAGE_DOMAIN: "test"
+      args: FOO: "test"
     environment:
       - TZ=Asia/Tokyo
       - DB_HOST=mongodb://mongodb:27017
