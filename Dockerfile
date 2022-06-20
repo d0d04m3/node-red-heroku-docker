@@ -2,8 +2,7 @@
 #ARG PATH_ACCESS_ENV
 FROM nodered/node-red
 
-COPY /data/script.sh .
-RUN ["chmod", "+x", "./script.sh"]
+
 ARG NR_ENV_ACCESS_PATH
 #RUN echo "https://${NR_ENV_ACCESS_PATH}@github.com" 
 #RUN ./script.sh ${NR_ENV_ACCESS_PATH}
@@ -33,6 +32,8 @@ ENTRYPOINT npm start --  --userDir ${NR_ENV_ACCESS_PATH}
 # Set work directory
 #WORKDIR /usr/src/node-red
 USER root
+COPY /data/script.sh .
+RUN ["chmod", "+x", "./script.sh"]
 # Setup SSH known_hosts file
 COPY /data/known_hosts.sh .
 RUN ["chmod", "+x", "./known_hosts.sh"]
