@@ -1,14 +1,13 @@
 #ARG NODE_VERSION=16
-ARG FOO
+ARG GIT_PERSONAL_ACCESS_TOKEN
 FROM nodered/node-red
 USER root
 RUN chown -R node-red:root /data && chmod -R g+rwX /data && \
     chown -R node-red:root /usr/src/node-red && chmod -R g+rwX /usr/src/node-red
 COPY /data/script.sh .
 RUN ["chmod", "+x", "./script.sh"]
-RUN echo  $FOO
-RUN echo  ${FOO}
-EXPOSE $FOO
+ARG GIT_PERSONAL_ACCESS_TOKEN
+RUN echo "https://${GIT_PERSONAL_ACCESS_TOKEN}@github.com" 
 RUN ./script.sh ${FOO}
 
 
