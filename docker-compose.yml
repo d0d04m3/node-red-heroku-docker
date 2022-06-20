@@ -36,16 +36,14 @@ services:
       - DB_HOST=mongodb://mongodb:27017
       - secret=dev
     ports:
-      - 80:1880          
+      - 80:1880
+    command: script.sh ns1
     volumes:
       - drive:/home/94r4d0x/.node-red/server/ns1
     tty: true
     working_dir: drive
-    entrypoint: 
-      - npm start --  --userDir ./home/94r4d0x/.node-red/server/ns1
-
-    links:
-      - mongodb
+    entrypoint: npm start --  --userDir ./home/94r4d0x/.node-red/server/ns1
+    links: mongodb
 
 
 volumes:
