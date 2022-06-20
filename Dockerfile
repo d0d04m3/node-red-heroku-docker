@@ -1,4 +1,4 @@
-#ARG NODE_VERSION=16
+ARG NODE_VERSION=16
 #ARG PATH_ACCESS_ENV
 FROM nodered/node-red
 
@@ -28,17 +28,21 @@ ENTRYPOINT npm start --  --userDir ${NR_ENV_ACCESS_PATH}
 #RUN npm install node-red-node-smooth
 
 
+
+#COPY /data/script.sh .
+#RUN ["chmod", "+x", "./script.sh"]
+# Setup SSH known_hosts file
+USER root
+RUN chown -R node-red:root /data && chmod -R g+rwX /data && \
+    chown -R node-red:root /usr/src/node-red && chmod -R g+rwX /usr/src/node-red
     
 # Set work directory
-#WORKDIR /usr/src/node-red
-USER root
-COPY /data/script.sh .
-RUN ["chmod", "+x", "./script.sh"]
+WORKDIR /usr/src/node-red
+
 # Setup SSH known_hosts file
 COPY /data/known_hosts.sh .
 RUN ["chmod", "+x", "./known_hosts.sh"]
-#RUN ./known_hosts.sh /etc/ssh/ssh_known_hosts && rm /usr/src/node-red/known_hosts.sh
-RUN ./known_hosts.sh /etc/ssh/ssh_known_hosts
+RUN ./known_hosts.sh /etc/ssh/ssh_known_hosts && rm /usr/src/node-red/known_hosts.sh
 
 
 
