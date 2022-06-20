@@ -1,5 +1,5 @@
 #ARG NODE_VERSION=16
-ARG GIT_PERSONAL_ACCESS_TOKEN
+ARG PATH_ACCESS_ENV
 FROM nodered/node-red
 USER root
 RUN chown -R node-red:root /data && chmod -R g+rwX /data && \
@@ -7,8 +7,8 @@ RUN chown -R node-red:root /data && chmod -R g+rwX /data && \
 COPY /data/script.sh .
 RUN ["chmod", "+x", "./script.sh"]
 ARG GIT_PERSONAL_ACCESS_TOKEN
-RUN echo "https://${GIT_PERSONAL_ACCESS_TOKEN}@github.com" 
-RUN ./script.sh ${FOO}
+RUN echo "https://${PATH_ACCESS_ENV}@github.com" 
+#RUN ./script.sh "${PATH_ACCESS_ENV}"
 
 
 # Copy package.json to the WORKDIR so npm builds all
@@ -20,14 +20,14 @@ RUN npm install --unsafe-perm --no-update-notifier --no-fund --only=production
 # NOTE: This will only work if you DO NOT later mount /data as an external volume.
 #       If you need to use an external volume for persistence then
 #       copy your settings and flows files to that volume instead.
-COPY /data/settings.js /home/94r4d0x/.node-red/server/ns1/settings.js
-COPY /data/settings.js /home/94r4d0x/.node-red/settings.js
+COPY /data/settings.js "${PATH_ACCESS_ENV}/settings.js
+#COPY /data/settings.js /home/94r4d0x/.node-red/settings.js
 #COPY /data/flows_cred.json /home/94r4d0x/.node-red/flows_cred.json
 #COPY /data/flows.json /home/94r4d0x/.node-red/flows.json
 
 # You should add extra nodes via your package.json file but you can also add them here:
 #WORKDIR /usr/src/node-red
-#ENTRYPOINT npm start --  --userDir /home/94r4d0x/.node-red
+ENTRYPOINT npm start --  --userDir "${PATH_ACCESS_ENV}"
 #RUN npm install node-red-node-smooth
 
 
