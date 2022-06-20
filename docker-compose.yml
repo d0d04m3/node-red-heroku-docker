@@ -1,4 +1,4 @@
-################################################################################
+#################################################################################
 # Node-RED Stack or Compose
 ################################################################################
 # docker stack deploy node-red --compose-file docker-compose-node-red.yml
@@ -31,8 +31,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args: 
-        - NR_ENV_ACCESS_PATH=/root/.node-red/nrs1
     environment:
       - TZ=Asia/Tokyo
       - DB_HOST=mongodb://mongodb:27017
@@ -40,8 +38,9 @@ services:
     ports:
       - 80:1880
     volumes:
-      - node-red:/root/.node-red/nrs1
-    links: mongodb
+      - node-red:/home/94r4d0x/.node-red
+    links:
+      - mongodb
 
 
 volumes:
@@ -50,6 +49,7 @@ volumes:
   mongodb_data:
     driver: local
     size: 2Gi
+  
   
 
  
